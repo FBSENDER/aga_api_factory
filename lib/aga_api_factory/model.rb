@@ -1,0 +1,5 @@
+require 'aga_api_factory/model/account'
+require 'aga_api_factory/model/campaign'
+require 'aga_api_factory/model/adgroup'
+require 'aga_api_factory/model/keyword'
+require 'aga_api_factory/model/creative'
