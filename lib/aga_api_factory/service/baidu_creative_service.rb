@@ -1,4 +1,4 @@
-module AagApiFactory
+module AgaApiFactory
   module Service
     class CreativeService < BaseService
       def baidu_upload(creatives)

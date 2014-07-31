@@ -2,9 +2,10 @@ module AgaApiFactory
   module Service
     class AccountService < BaseService
 
-      def qihu_get_info(accounts)
+      def qihu_get_info(accounts = nil)
         account_service = Qihu::DianJing::Client.new(get_auth).account
         response = account_service.getInfo()
+        p response if $debug
         info = JSON.parse(response.body)
         self.account.status = 1 #360该接口未返回账户状态，故默认该值为1 有效
         self.account.balance = info["balance"].to_f
