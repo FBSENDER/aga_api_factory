@@ -17,4 +17,6 @@ require 'aga_api_factory/service/qihu_keyword_service'
 require 'aga_api_factory/service/sogou_keyword_service'
 require 'aga_api_factory/service/baidu_keyword_service'
 
-require 'aga_api_factory/service/creative_upload_service'
+require 'aga_api_factory/service/baidu_creative_service'
+require 'aga_api_factory/service/qihu_creative_service'
+require 'aga_api_factory/service/sogou_creative_service'
