@@ -22,8 +22,8 @@ module AgaApiFactory
         auth
       end
       def qihu_get_auth
-        app_id = 'your_app_id'
-        app_pub_key = 'your_app_pub_key'
+        app_id = ENV["QIHUID"] 
+        app_pub_key = ENV["QIHUKEY"]
         auth = Qihu::Auth.new(app_id,app_pub_key)
         auth.get_token_from_hash(:access_token => self.account.api_key)
         auth
