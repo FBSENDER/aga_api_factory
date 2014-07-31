@@ -19,7 +19,7 @@ module AgaApiFactory
       def qihu_refresh_token(accounts)
         url = "https://openapi.360.cn/oauth2/authorize"
         response = HTTParty.post(url,
-            :body => {:client_id => "0b7e2630bbf293b98fb0fec2e106c652",
+            :body => {:client_id => ENV["QIHUID"],
                   :response_type => "code",
                   :redirect_uri => "oob",
                   :username => account.account_name,
@@ -27,7 +27,7 @@ module AgaApiFactory
                   })
         code = response.request.last_uri.to_s.scan(/code=.*/)[0]
         code_string = code[5..code.size-1]
-        auth = Qihu::Auth.new('0b7e2630bbf293b98fb0fec2e106c652', '9699ba7f22206b4e9a4c1e281431125f')
+        auth = Qihu::Auth.new(ENV["QIHUID"], ENV["QIHUKEY"])
         response = auth.get_token(code_string)
         account.api_key = response.token.token
       end
